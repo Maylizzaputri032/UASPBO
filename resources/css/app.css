@@ -1,0 +1,131 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
+
+
+@layer utilities {
+    .with-sub.active::after {
+        transform: rotate(90deg);
+    }
+    
+    .menu:not(.with-sub).active{
+        @apply bg-gray-800;
+    }
+
+    .menu{
+        @apply cursor-pointer px-4 py-2 hover:bg-gray-800 flex relative gap-2;
+    }
+
+    .sub-menu{
+        @apply hidden gap-2 ml-7 border-l-2 border-gray-800;
+    }
+
+    .sub-menu .material-icons{
+        font-size: 0.75rem;
+        line-height: 1rem;
+        position: relative;
+        top: 3px;
+    }
+
+    .menu.with-sub.active+.sub-menu{
+        @apply block;
+    }
+
+    .menu.with-sub::after {
+        content: "chevron_right";
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+        position: absolute;
+        right: 12px;
+    }
+
+    .breadcumb{
+        @apply flex;
+    }
+
+    .breadcumb a::after {
+        content: "chevron_right";
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+        align-items: center;
+        padding: 0px 2px;
+    }
+
+    .breadcumb a{
+        @apply flex items-center text-indigo-600;
+    }
+
+    .breadcumb span{
+        @apply flex items-center text-gray-400;
+    }
+
+    /* input */
+    select,input[type="text"],input[type="date"],input[type="password"],input[type="email"]{
+        @apply bg-gray-900 rounded-lg text-gray-400;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        @apply cursor-pointer;
+        filter: invert(1);
+      }
+
+    select option{
+        @apply text-lg text-gray-400;
+    }
+
+    .error{
+        @apply text-red-600;
+    }
+
+    /* radio */
+     /* radio */
+     input[type="radio"].option_round{
+        @apply hidden;
+    }
+
+    input[type="radio"].option_round + span{
+        @apply capitalize py-1 px-2 flex items-center bg-gray-600 text-white justify-center mt-1 cursor-pointer hover:bg-gray-700
+            border-r border-gray-900;
+            min-width: 4rem;
+    }
+
+    input[type="radio"].option_round:checked + span{
+        @apply bg-indigo-600;
+    }
+
+    input[type="radio"].option_round.first + span{
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+    }
+
+    input[type="radio"].option_round.last + span{
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        border-style: none;
+    }
+  }
